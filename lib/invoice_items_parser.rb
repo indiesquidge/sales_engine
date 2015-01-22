@@ -1,7 +1,4 @@
-require 'csv'
-require_relative '../lib/invoice_item.rb'
-require 'pry'
-
+require 'test_helper'
 
 class InvoiceItemsParser
   attr_reader :filename
