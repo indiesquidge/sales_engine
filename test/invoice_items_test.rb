@@ -1,7 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative '../lib/invoice_item'
-require_relative '../lib/invoice'
+require_relative 'test_helper'
 
 class InvoiceItemsTest < Minitest::Test
   def test_it_stores_an_invoice_id
@@ -44,7 +41,7 @@ class InvoiceItemsIntegrationTest < Minitest::Test
   # .invoice method returns invoice_id: 2 associated with invoice_item_id: 9
   # item_id: 1832....
   ##See above ##
-  
+
   def test_it_finds_related_invoices
     @invoice_items_repo = FakeInvoiceItemRepository.new
     data = {:invoice_item_id => 9}
