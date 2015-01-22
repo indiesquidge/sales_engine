@@ -1,7 +1,4 @@
-require 'csv'
-require 'pry'
-require_relative '../lib/invoice_items_parser'
-require_relative '../lib/invoice_item'
+require 'test_helper.rb'
 
 class InvoiceItemsRepo
   attr_reader :invoice_items_array, :data

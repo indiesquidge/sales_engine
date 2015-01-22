@@ -1,0 +1,6 @@
+require 'csv'
+require 'pry'
+require_relative '../lib/invoice_items_parser.rb'
+require_relative '../lib/invoice_item'
+require_relative '../lib/invoice_item'
+require_relative '../lib/invoice_items_repo'
