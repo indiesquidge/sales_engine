@@ -1,13 +1,8 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative '../lib/invoice_item'
-require_relative '../lib/invoice'
-require_relative '../lib/invoice_items_parser'
-
+require_relative 'test_helper'
 
 class InvoiceItemsParserTest < Minitest::Test
   def test_it_parses_a_csv_of_data
-    filename = "../data/fixtures/test_invoice_items.csv"
+    filename = "./data/fixtures/test_invoice_items.csv"
     parser = InvoiceItemsParser.new(filename)
     invoice_items = parser.parse
 

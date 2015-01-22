@@ -1,5 +1,3 @@
-require 'test_helper.rb'
-
 class InvoiceItemsRepo
   attr_reader :invoice_items_array, :data
 

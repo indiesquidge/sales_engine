@@ -1,17 +1,10 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative '../lib/invoice_items_repo.rb'
-require_relative '../lib/csv_loader.rb'
-require_relative '../lib/invoice_items_parser.rb'
-require 'bigdecimal'
-require 'pry'
-
+require_relative 'test_helper'
 
 class InvoiceItemsRepositoryTest <  Minitest::Test
   attr_reader :sales_engine
 
   def setup
-    file    = "../data/fixtures/test_invoice_items.csv"
+    file    = "./data/fixtures/test_invoice_items.csv"
     @invoice_items_repo = InvoiceItemsRepo.new(file, nil)
   end
 
