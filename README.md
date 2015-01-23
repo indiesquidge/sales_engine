@@ -1,3 +1,5 @@
+[![Stories in Ready](https://badge.waffle.io/indiesquidge/sales_engine.svg?label=ready&title=Ready)](http://waffle.io/indiesquidge/sales_engine)
+
 # Sales Engine
 
 (insert project completion goals for first check-in here)
