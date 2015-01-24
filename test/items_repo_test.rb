@@ -83,13 +83,6 @@ class ItemsRepositoryTest <  Minitest::Test
     assert_equal [item, item2], repo.find_all_by_time_updated("2015-01-23 09:01:21 MST")
   end
 
-
-
-
-
-
-
-  #
   # def setup
   #   file    = "./data/fixtures/test_items.csv"
   #   @items_repo = ItemsRepo.new(file, nil)
