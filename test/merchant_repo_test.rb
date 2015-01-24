@@ -1,4 +1,6 @@
 require_relative '../test/test_helper'
+require_relative '../lib/merchant_repo.rb'
+require_relative '../lib/merchant.rb'
 
 class MerchantRepoTest < MiniTest::Test
 
