@@ -1,21 +1,25 @@
 class InvoiceItemsRepo
-  attr_reader :invoice_items_array, :data
+  # attr_reader :invoice_items_array, :data
 
-  def initialize(data, parent)
-    invoice_items = InvoiceItemsParser.new(data)
-    @data = invoice_items.parse
+  # def initialize(data, parent)
+  #   invoice_items = InvoiceItemsParser.new(data)
+  #   @data = invoice_items.parse
+  # end
+
+  def initialize(invoice_items)
+    @invoice_items = invoice_items
   end
 
   def all
-    data
+    @invoice_items
   end
 
   def random
-    data.sample
+    @invoice_items.sample
   end
 
   def find_by_id(id)
-    find_by_attribute(:id, id)
+    @invoice_items.find { |invoice_items| invoice_items.id == id }
   end
 
   def find_by_item_id(item_id)
@@ -38,14 +42,30 @@ class InvoiceItemsRepo
     find_by_attribute(:unit_price, unit_price)
   end
 
+  def find_by_time_created(created_at)
+    find_by_attribute(:created_at, created_at)
+  end
+
+  def find_by_time_updated(updated_at)
+    find_by_attribute(:updated_at, updated_at)
+  end
+
+  def find_all_by_time_created(created_at)
+    find_all_by_attribute(:created_at, created_at)
+  end
+
+  def find_all_by_time_updated(updated_at)
+    find_all_by_attribute(:updated_at, updated_at)
+  end
+
   private
 
   def find_by_attribute(attribute,criteria)
-    data.detect {|x| x.send(attribute.to_sym)  == criteria}
+    @invoice_items.detect {|x| x.send(attribute.to_sym)  == criteria}
   end
 
   def find_all_by_attribute(attribute,criteria)
-    data.detect {|x| x.send(attribute.to_sym) == criteria}
+    @invoice_items.select {|x| x.send(attribute.to_sym) == criteria}
   end
 
  ### extra relationship cases
