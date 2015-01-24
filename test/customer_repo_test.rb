@@ -1,5 +1,4 @@
-require_relative 'support/test_helper'
-require_relative '../lib/customer_repo'
+require_relative '../test/test_helper'
 
 class CustomerRepoTest < MiniTest::Test
 

@@ -1,5 +1,4 @@
-require_relative './support/test_helper'
-require_relative '../lib/parser'
+require_relative '../test/test_helper'
 
 class ParserTest < MiniTest::Test
 

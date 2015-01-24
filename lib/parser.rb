@@ -1,5 +1,4 @@
-require 'csv'
-require_relative './customer'
+require_relative '../test/test_helper'
 
 class Parser
   attr_reader :filename, :repo

@@ -1,5 +1,4 @@
-require_relative 'support/test_helper'
-require_relative '../lib/customer'
+require_relative '../test/test_helper'
 
 class CustomerTest < MiniTest::Test
   attr_reader :data, :customer
