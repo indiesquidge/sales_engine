@@ -7,7 +7,7 @@ class Transaction
               :updated_at
 
   def initialize(data)
-    @id                  = data[:id]
+    @id                  = data[:id].to_i
     @invoice_id          = data[:invoice_id]
     @credit_card_number  = data[:credit_card_number]
     @result              = data[:result]
