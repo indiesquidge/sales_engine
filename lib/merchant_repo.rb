@@ -14,30 +14,40 @@ class MerchantRepo
   end
 
   def find_by_id(id)
-    merchants.find { |merchant| merchant.id == id }
+    find_by_attribute(:id, id)
   end
 
   def find_by_name(name)
-    merchants.find { |merchant| merchant.name == name }
+    find_by_attribute(:name, name)
   end
 
   def find_by_time_created(time)
-    merchants.find { |merchant| merchant.created_at == time }
+    find_by_attribute(:created_at, time)
   end
 
   def find_by_time_updated(time)
-    merchants.find { |merchant| merchant.updated_at == time }
+    find_by_attribute(:updated_at, time)
   end
 
   def find_all_by_name(name)
-    merchants.select { |merchant| merchant.name == name }
+    find_all_by_attribute(:name, name)
   end
 
   def find_all_by_time_created(time)
-    merchants.select { |merchant| merchant.created_at == time }
+    find_all_by_attribute(:created_at, time)
   end
 
   def find_all_by_time_updated(time)
-    merchants.select { |merchant| merchant.updated_at == time }
+    find_all_by_attribute(:updated_at, time)
+  end
+
+  private 
+
+  def find_by_attribute(attr, criteria)
+    merchants.find { |x| x.send(attr.to_sym) == criteria }
+  end
+
+  def find_all_by_attribute(attr, criteria)
+    merchants.select { |x| x.send(attr.to_sym) == criteria }
   end
 end

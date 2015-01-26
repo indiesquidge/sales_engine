@@ -14,38 +14,48 @@ class CustomerRepo
   end
 
   def find_by_id(id)
-    customers.find { |customer| customer.id == id }
+    find_by_attribute(:id, id)
   end
 
   def find_by_first_name(first_name)
-    customers.find { |customer| customer.first_name == first_name }
+    find_by_attribute(:first_name, first_name)
   end
 
   def find_by_last_name(last_name)
-    customers.find { |customer| customer.last_name == last_name }
+    find_by_attribute(:last_name, last_name)
   end
 
   def find_by_time_created(time)
-    customers.find { |customer| customer.created_at == time }
+    find_by_attribute(:created_at, time)
   end
 
   def find_by_time_updated(time)
-    customers.find { |customer| customer.updated_at == time }
+    find_by_attribute(:updated_at, time)
   end
 
   def find_all_by_first_name(first_name)
-    customers.select { |customer| customer.first_name == first_name }
+    find_all_by_attribute(:first_name, first_name)
   end
 
   def find_all_by_last_name(last_name)
-    customers.select { |customer| customer.last_name == last_name }
+    find_all_by_attribute(:last_name, last_name)
   end
 
   def find_all_by_time_created(time)
-    customers.select { |customer| customer.created_at == time }
+    find_all_by_attribute(:created_at, time)
   end
 
   def find_all_by_time_updated(time)
-    customers.select { |customer| customer.updated_at == time }
+    find_all_by_attribute(:updated_at, time)
+  end
+
+  private 
+
+  def find_by_attribute(attr, criteria)
+    customers.find { |x| x.send(attr.to_sym) == criteria }
+  end
+
+  def find_all_by_attribute(attr, criteria)
+    customers.select { |x| x.send(attr.to_sym) == criteria }
   end
 end
