@@ -5,6 +5,11 @@ class InvoiceRepo
     @invoices = invoices
   end
 
+  # provides class level access to the instance of InvoiceRepo
+  def self.get_instance(invoices=nil)
+    @invoice_repo ||= new(invoices)
+  end
+
   def all
     invoices
   end
@@ -60,10 +65,10 @@ class InvoiceRepo
   private 
 
   def find_by_attribute(attr, criteria)
-    invoices.find { |x| x.send(attr.to_sym) == criteria }
+    invoices.find { |invoice| invoice.send(attr.to_sym) == criteria }
   end
 
   def find_all_by_attribute(attr, criteria)
-    invoices.select { |x| x.send(attr.to_sym) == criteria }
+    invoices.select { |invoice| invoice.send(attr.to_sym) == criteria }
   end
 end

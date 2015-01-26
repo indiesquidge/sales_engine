@@ -10,3 +10,14 @@ class Invoice
     @updated_at  = data[:updated_at]
   end
 end
+
+# ========== Notes from pairing ==========
+# class Invoice
+#   def items
+#     invoice_item_repo= InvoiceItemRepo.get_instance
+#     invoice_items = invoice_item_repo.find_all_by_invoice_id(id)
+#     invoice_items.map do |invoice_item|
+#       invoice_item.item
+#     end
+#   end
+# end

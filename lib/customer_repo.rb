@@ -52,10 +52,10 @@ class CustomerRepo
   private 
 
   def find_by_attribute(attr, criteria)
-    customers.find { |x| x.send(attr.to_sym) == criteria }
+    customers.find { |customer| customer.send(attr.to_sym) == criteria }
   end
 
   def find_all_by_attribute(attr, criteria)
-    customers.select { |x| x.send(attr.to_sym) == criteria }
+    customers.select { |customer| customer.send(attr.to_sym) == criteria }
   end
 end

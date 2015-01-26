@@ -8,4 +8,9 @@ class Customer
     @created_at = data[:created_at]
     @updated_at = data[:updated_at]
   end
+
+  def invoices
+    invoice_repo = InvoiceRepo.get_instance
+    invoice_repo.find_all_by_customer_id(id)
+  end
 end

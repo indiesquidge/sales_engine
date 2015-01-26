@@ -44,10 +44,10 @@ class MerchantRepo
   private 
 
   def find_by_attribute(attr, criteria)
-    merchants.find { |x| x.send(attr.to_sym) == criteria }
+    merchants.find { |merchant| merchant.send(attr.to_sym) == criteria }
   end
 
   def find_all_by_attribute(attr, criteria)
-    merchants.select { |x| x.send(attr.to_sym) == criteria }
+    merchants.select { |merchant| merchant.send(attr.to_sym) == criteria }
   end
 end
