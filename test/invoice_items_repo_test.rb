@@ -1,4 +1,6 @@
 require_relative 'test_helper'
+require_relative '../lib/invoice_item'
+require_relative '../lib/invoice_items_repo'
 
 class InvoiceItemsRepositoryTest <  Minitest::Test
 
@@ -10,7 +12,6 @@ class InvoiceItemsRepositoryTest <  Minitest::Test
 
   def test_it_loads_a_random_invoice_item
     invoice_items = [InvoiceItem.new({})]
-    repo = InvoiceItemsRepo.new(invoice_items)
     assert invoice_items.sample
   end
 
