@@ -7,7 +7,7 @@ require_relative '../lib/invoice'
 
 class InvoiceItemsRelationshipTest < Minitest::Test
 
-  def test_it_returns_associated_item
+  def test_it_returns_associated_items
     invoice_item = InvoiceItem.new(:item_id => 45)
     items1 = Item.new(:id => 23)
     items2 = Item.new(:id => 45)
