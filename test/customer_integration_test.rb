@@ -12,4 +12,8 @@ class CustomerIntegrationTest < MiniTest::Test
     InvoiceRepo.get_instance([invoice, invoice2])
     assert_equal [invoice], customer.invoices
   end
+
+  def teardown
+    InvoiceRepo.clear
+  end
 end

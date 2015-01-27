@@ -10,6 +10,10 @@ class InvoiceRepo
     @invoice_repo ||= new(invoices)
   end
 
+  def self.clear
+    @invoice_repo = nil
+  end
+
   def all
     invoices
   end
@@ -62,7 +66,7 @@ class InvoiceRepo
     find_all_by_attribute(:updated_at, time)
   end
 
-  private 
+  private
 
   def find_by_attribute(attr, criteria)
     invoices.find { |invoice| invoice.send(attr.to_sym) == criteria }

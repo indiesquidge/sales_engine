@@ -24,4 +24,9 @@ class InvoiceItem
     items_repo.find_by_id(item_id)
   end
 
+  def invoice
+    invoice_repo = InvoiceRepo.get_instance
+    invoice_repo.find_by_id(invoice_id)
+  end
+
 end

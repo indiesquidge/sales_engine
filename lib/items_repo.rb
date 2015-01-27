@@ -9,8 +9,8 @@ class ItemsRepo
     @items_repo ||= new(items)
   end
 
-  def find_invoice_item_by_id
-    @items_repo.find 
+  def self.clear
+    @items_repo = nil
   end
 
   def all
