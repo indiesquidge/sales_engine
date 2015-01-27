@@ -16,7 +16,8 @@ class Transaction
   end
 
   def invoice
-    @engine.transaction_relationships_invoices(self)
+    invoice_repo = InvoiceRepo.get_instance
+    invoice_repo.find_by_id(invoice_id)
   end
 
   # invoice returns Invoices associated with transactions
