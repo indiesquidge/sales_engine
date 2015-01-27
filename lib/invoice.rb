@@ -9,6 +9,11 @@ class Invoice
     @created_at  = data[:created_at]
     @updated_at  = data[:updated_at]
   end
+
+  def customer
+    customer_repo = CustomerRepo.get_instance
+    customer_repo.find_by_id(customer_id)
+  end
 end
 
 # ========== Notes from pairing ==========

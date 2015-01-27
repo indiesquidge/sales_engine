@@ -22,8 +22,4 @@ class InvoiceItemsRelationshipTest < Minitest::Test
     ItemsRepo.clear
     InvoiceRepo.clear
   end
-
-
-
-
 end

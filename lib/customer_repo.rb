@@ -5,6 +5,14 @@ class CustomerRepo
     @customers = customers
   end
 
+  def self.get_instance(customers=nil)
+    @customer_repo ||= new(customers)
+  end
+
+  def self.clear
+    @customer_repo = nil
+  end
+
   def all
     customers
   end

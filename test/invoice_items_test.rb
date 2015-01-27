@@ -23,21 +23,3 @@ class InvoiceItemsTest < Minitest::Test
     assert_equal 539, invoice_item.invoice_id
   end
 end
-
-class InvoiceItemsIntegrationTest < Minitest::Test
-  # .invoice method returns invoice_id: 2 associated with invoice_item_id: 9
-  # item_id: 1832....
-  ##See above ##
-
-  def test_it_finds_related_invoices
-    skip
-    @invoice_items_repo = FakeInvoiceItemRepository.new
-    data = {:invoice_item_id => 9}
-    @invoice_item = InvoiceItem.new(data, @invoice_items_repo)
-
-    invoice = Array.new(2){ Invoice.new }
-    @invoice_items_repo.invoice = invoice
-
-    assert_equal invoice, @invoice_item.invoice
-  end
-end
