@@ -14,6 +14,16 @@ class Invoice
     customer_repo = CustomerRepo.get_instance
     customer_repo.find_by_id(customer_id)
   end
+
+  def merchant
+    merchant_repo = MerchantRepo.get_instance
+    merchant_repo.find_by_id(merchant_id)
+  end
+
+  def transactions
+    transaction_repo = TransactionRepo.get_instance
+    transaction_repo.find_all_by_invoice_id(id)
+  end
 end
 
 # ========== Notes from pairing ==========

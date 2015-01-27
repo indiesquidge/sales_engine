@@ -5,6 +5,14 @@ class MerchantRepo
     @merchants = merchants
   end
 
+  def self.get_instance(merchants=nil)
+    @merchant_repo ||= new(merchants)
+  end
+
+  def self.clear
+    @merchant_repo = nil
+  end
+
   def all
     merchants
   end

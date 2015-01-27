@@ -10,6 +10,23 @@ class InvoiceRelationshipTest < MiniTest::Test
     assert_equal customer, invoice.customer
   end
 
+  def test_it_returns_associated_merchant
+    invoice = Invoice.new(:merchant_id => 1)
+    merchant = Merchant.new(:id => 1)
+    merchant2 = Merchant.new(:id => 2)
+    MerchantRepo.get_instance([merchant, merchant2])
+    assert_equal merchant, invoice.merchant
+  end
+
+  def test_it_returns_associated_transactions
+    invoice = Invoice.new(:id => 1)
+    transaction = Transaction.new(:invoice_id => 2)
+    transaction2 = Transaction.new(:invoice_id => 1)
+    transaction3 = Transaction.new(:invoice_id => 1)
+    TransactionRepo.get_instance([transaction, transaction2, transaction3])
+    assert_equal [transaction2, transaction3], invoice.transactions
+  end
+
   def teardown
     CustomerRepo.clear
   end
