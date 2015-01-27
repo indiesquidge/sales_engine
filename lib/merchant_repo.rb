@@ -49,7 +49,7 @@ class MerchantRepo
     find_all_by_attribute(:updated_at, time)
   end
 
-  private 
+  private
 
   def find_by_attribute(attr, criteria)
     merchants.find { |merchant| merchant.send(attr.to_sym) == criteria }

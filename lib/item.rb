@@ -16,14 +16,9 @@ class Item
   end
 
 
-  def invoice_items
-    @engine.item_relationships_invoice_items(self)
-  end
-
-  # returns InvoiceItems associated with item
-
   def merchant
-    @engine.item_relationships_merchants(self)
+    merchant_repo = MerchantRepo.get_instance
+    merchant_repo.find_by_id(merchant_id)
   end
 
   # returns Merchant instances associated with this object

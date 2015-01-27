@@ -38,5 +38,6 @@ class InvoiceRelationshipTest < MiniTest::Test
 
   def teardown
     CustomerRepo.clear
+    MerchantRepo.clear
   end
 end
