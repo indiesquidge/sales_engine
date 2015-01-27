@@ -29,15 +29,9 @@ class Invoice
     invoice_item_repo = InvoiceItemsRepo.get_instance
     invoice_item_repo.find_all_by_invoice_id(id)
   end
-end
 
-# ========== Notes from pairing ==========
-# class Invoice
-#   def items
-#     invoice_item_repo= InvoiceItemRepo.get_instance
-#     invoice_items = invoice_item_repo.find_all_by_invoice_id(id)
-#     invoice_items.map do |invoice_item|
-#       invoice_item.item
-#     end
-#   end
-# end
+  def items
+    associated_invoice_items = invoice_items
+    associated_invoice_items.map { |invoice_item| invoice_item.item }
+  end
+end

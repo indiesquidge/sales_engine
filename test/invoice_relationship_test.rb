@@ -36,8 +36,24 @@ class InvoiceRelationshipTest < MiniTest::Test
     assert_equal [invoice_item2, invoice_item3], invoice.invoice_items
   end
 
+  def test_it_returns_associated_items_by_way_of_invoice_items
+    invoice = Invoice.new(:id => 1)
+    invoice_item = InvoiceItem.new({:invoice_id => 2, :item_id => 13})
+    invoice_item2 = InvoiceItem.new({:invoice_id => 1, :item_id => 1})
+    invoice_item3 = InvoiceItem.new({:invoice_id => 1, :item_id => 12})
+    InvoiceItemsRepo.get_instance([invoice_item, invoice_item2, invoice_item3])
+    item = Item.new(:id => 1)
+    item2 = Item.new(:id => 12)
+    item3 = Item.new(:id => 30)
+    ItemsRepo.get_instance([item, item2, item3])
+    assert_equal [item, item2], invoice.items
+  end
+
   def teardown
     CustomerRepo.clear
     MerchantRepo.clear
+    TransactionRepo.clear
+    InvoiceItemsRepo.clear
+    ItemsRepo.clear
   end
 end
