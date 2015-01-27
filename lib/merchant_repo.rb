@@ -5,6 +5,10 @@ class MerchantRepo
     @merchants = merchants
   end
 
+  def self.get_instance(merchants=nil)
+    @merchant_repo ||= new(merchants)
+  end
+
   def all
     merchants
   end
@@ -41,7 +45,7 @@ class MerchantRepo
     find_all_by_attribute(:updated_at, time)
   end
 
-  private 
+  private
 
   def find_by_attribute(attr, criteria)
     merchants.find { |merchant| merchant.send(attr.to_sym) == criteria }

@@ -17,8 +17,6 @@ class InvoiceItem
     @updated_at = data[:updated_at]
   end
 
-## Relationships ##
-
   def item
     items_repo = ItemsRepo.get_instance
     items_repo.find_by_id(item_id)
