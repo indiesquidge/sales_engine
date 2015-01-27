@@ -5,7 +5,7 @@ class ItemsRepo
     @items = items
   end
 
-  def self.get_instance(items = nil)
+  def self.get_instance(items=nil)
     @items_repo ||= new(items)
   end
 
