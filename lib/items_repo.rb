@@ -1,7 +1,16 @@
 class ItemsRepo
+  attr_reader :items
 
   def initialize(items)
     @items = items
+  end
+
+  def self.get_instance(items = nil)
+    @items_repo ||= new(items)
+  end
+
+  def find_invoice_item_by_id
+    @items_repo.find 
   end
 
   def all

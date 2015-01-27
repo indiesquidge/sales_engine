@@ -8,20 +8,20 @@ class InvoiceItem
               :updated_at
 
   def initialize(data)
-    @id         = data[:id] #invoice_item_id or first column
+    @id         = data[:id].to_i
     @invoice_id = data[:invoice_id].to_i
     @item_id    = data[:item_id]
-    # @parent     = parent  # Should be going to the repo
     @quantity   = data[:quantity].to_i
     @unit_price = data[:unit_price]
     @created_at = data[:created_at]
     @updated_at = data[:updated_at]
   end
 
-  def invoice
-    @parent.find_invoices_by_invoice_item_id(id)
-  end
+## Relationships ##
 
-  ## Parent should be invoice_items_repo
+  def item
+    items_repo = ItemsRepo.get_instance
+    items_repo.find_by_id(item_id)
+  end
 
 end

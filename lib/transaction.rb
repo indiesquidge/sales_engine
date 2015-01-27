@@ -15,6 +15,19 @@ class Transaction
     @updated_at          = data[:updated_at]
   end
 
+  def invoice
+    @engine.transaction_relationships_invoices(self)
+  end
+
+  # invoice returns Invoices associated with transactions
+
+
+  ## In Sales Engine ##
+  #
+  # def transactions_relationships_invoices(transaction)
+  #   @invoices_repository.find_by_attribute(:id, transaction.invoice_id)
+  # end
+
 
 
 

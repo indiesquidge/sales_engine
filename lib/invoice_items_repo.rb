@@ -1,10 +1,4 @@
 class InvoiceItemsRepo
-  # attr_reader :invoice_items_array, :data
-
-  # def initialize(data, parent)
-  #   invoice_items = InvoiceItemsParser.new(data)
-  #   @data = invoice_items.parse
-  # end
 
   def initialize(invoice_items)
     @invoice_items = invoice_items
