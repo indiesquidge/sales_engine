@@ -4,6 +4,14 @@ class TransactionRepo
     @transactions = transactions
   end
 
+  def self.get_instance(transactions=nil)
+    @transaction_repo ||= new(transactions)
+  end
+
+  def self.clear
+    @transaction_repo = nil
+  end
+
   def all
     @transactions
   end
@@ -28,16 +36,24 @@ class TransactionRepo
     find_by_attribute(:result, result)
   end
 
-  def find_all_by_result(result)
-    find_all_by_attribute(:result, result)
-  end
-
   def find_by_time_created(created_at)
     find_by_attribute(:created_at, created_at)
   end
 
   def find_by_time_updated(updated_at)
     find_by_attribute(:updated_at, updated_at)
+  end
+
+  def find_all_by_invoice_id(invoice_id)
+    find_all_by_attribute(:invoice_id, invoice_id)
+  end
+
+  def find_all_by_credit_card_number(credit_card_number)
+    find_all_by_attribute(:credit_card_number, credit_card_number)
+  end
+
+  def find_all_by_result(result)
+    find_all_by_attribute(:result, result)
   end
 
   def find_all_by_time_created(created_at)
