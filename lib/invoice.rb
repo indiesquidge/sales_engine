@@ -24,6 +24,11 @@ class Invoice
     transaction_repo = TransactionRepo.get_instance
     transaction_repo.find_all_by_invoice_id(id)
   end
+
+  def invoice_items
+    invoice_item_repo = InvoiceItemsRepo.get_instance
+    invoice_item_repo.find_all_by_invoice_id(id)
+  end
 end
 
 # ========== Notes from pairing ==========

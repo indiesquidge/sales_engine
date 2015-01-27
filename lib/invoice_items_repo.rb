@@ -4,6 +4,14 @@ class InvoiceItemsRepo
     @invoice_items = invoice_items
   end
 
+  def self.get_instance(invoice_items=nil)
+    @invoice_repo ||= new(invoice_items)
+  end
+
+  def self.clear
+    @invoice_repo = nil
+  end
+
   def all
     @invoice_items
   end
