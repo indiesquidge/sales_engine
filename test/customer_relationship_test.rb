@@ -1,4 +1,7 @@
 require_relative 'test_helper'
+require_relative '../lib/customer'
+require_relative '../lib/invoice_repo'
+require_relative '../lib/invoice'
 
 class CustomerRelationshipTest < MiniTest::Test
 

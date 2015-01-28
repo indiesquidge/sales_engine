@@ -1,4 +1,6 @@
 require_relative 'test_helper'
+require_relative '../lib/item'
+require_relative '../lib/items_repo'
 
 class ItemsRepositoryTest <  Minitest::Test
 
