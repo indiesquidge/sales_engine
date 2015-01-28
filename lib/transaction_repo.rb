@@ -18,7 +18,7 @@ class TransactionRepo
   end
 
   def random
-    transaction.sample
+    transactions.sample
   end
 
   def find_by_id(id)
