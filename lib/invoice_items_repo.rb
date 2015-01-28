@@ -25,60 +25,61 @@ class InvoiceItemsRepo
     find_by_attribute(:id, id)
   end
 
-  def find_by_item_id(item_id)
-    find_by_attribute(:item_id, item_id)
+  def find_by_item_id(id)
+    find_by_attribute(:item_id, id)
   end
 
-  def find_by_invoice_id(invoice_id)
-    find_by_attribute(:invoice_id, invoice_id)
-  end
-
-  def find_all_by_invoice_id(invoice_id)
-    find_all_by_attribute(:invoice_id, invoice_id)
+  def find_by_invoice_id(id)
+    find_by_attribute(:invoice_id, id)
   end
 
   def find_by_quantity(quantity)
     find_by_attribute(:quantity, quantity)
   end
 
-  def find_by_unit_price(unit_price)
-    find_by_attribute(:unit_price, unit_price)
+  def find_by_unit_price(price)
+    find_by_attribute(:unit_price, price)
   end
 
-  def find_by_time_created(created_at)
-    find_by_attribute(:created_at, created_at)
+  def find_by_time_created(time)
+    find_by_attribute(:created_at, time)
   end
 
-  def find_by_time_updated(updated_at)
-    find_by_attribute(:updated_at, updated_at)
+  def find_by_time_updated(time)
+    find_by_attribute(:updated_at, time)
   end
 
-  def find_all_by_time_created(created_at)
-    find_all_by_attribute(:created_at, created_at)
+  def find_all_by_item_id(id)
+    find_all_by_attribute(:item_id, id)
   end
 
-  def find_all_by_time_updated(updated_at)
-    find_all_by_attribute(:updated_at, updated_at)
+  def find_all_by_invoice_id(id)
+    find_all_by_attribute(:invoice_id, id)
+  end
+
+  def find_all_by_quantity(quantity)
+    find_all_by_attribute(:quantity, quantity)
+  end
+
+  def find_all_by_unit_price(unit_price)
+    find_all_by_attribute(:unit_price, unit_price)
+  end
+
+  def find_all_by_time_created(time)
+    find_all_by_attribute(:created_at, time)
+  end
+
+  def find_all_by_time_updated(time)
+    find_all_by_attribute(:updated_at, time)
   end
 
   private
 
-  def find_by_attribute(attribute,criteria)
-    @invoice_items.detect {|x| x.send(attribute.to_sym)  == criteria}
+  def find_by_attribute(attr,criteria)
+    @invoice_items.detect {|invoice_item| invoice_item.send(attr.to_sym)  == criteria}
   end
 
-  def find_all_by_attribute(attribute,criteria)
-    @invoice_items.select {|x| x.send(attribute.to_sym) == criteria}
+  def find_all_by_attribute(attr,criteria)
+    @invoice_items.select {|invoice_item| invoice_item.send(attr.to_sym) == criteria}
   end
-
- ### extra relationship cases
-
-  ## Call this on Sales Engine
-  # def invoice
-  #   @parent.find_invoices_by_invoice_item_id(id)
-  # end
-
-  # def item
-  #   # Returns instance of item
-  # end
 end
