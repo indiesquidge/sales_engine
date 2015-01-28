@@ -1,4 +1,5 @@
 class InvoiceItemsRepo
+  attr_reader :invoice_items
 
   def initialize(invoice_items)
     @invoice_items = invoice_items
@@ -13,15 +14,15 @@ class InvoiceItemsRepo
   end
 
   def all
-    @invoice_items
+    invoice_items
   end
 
   def random
-    @invoice_items.sample
+    invoice_items.sample
   end
 
   def find_by_id(id)
-    @invoice_items.find { |invoice_items| invoice_items.id == id }
+    find_by_attribute(:id, id)
   end
 
   def find_by_item_id(item_id)

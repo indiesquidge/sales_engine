@@ -6,8 +6,7 @@ class ParserTest < MiniTest::Test
 
   def test_it_can_parse_csv_from_a_file
     filename = "test/support/sample_customers.csv"
-    parser = Parser.new(filename, Customer)
-    customers = parser.parse
+    customers = Parser.parse(filename, Customer)
 
     first_customer = customers.first
     assert_equal 1, first_customer.id
