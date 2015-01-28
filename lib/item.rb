@@ -21,7 +21,6 @@ class Item
     merchant_repo.find_by_id(merchant_id)
   end
 
-  # returns Merchant instances associated with this object
 
   ## Sales Engine ##
 
