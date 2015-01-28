@@ -14,18 +14,16 @@ class ItemsRelationshipTest < Minitest::Test
   end
 
   def test_it_returns_associated_invoice_items
-    invoice_item = InvoiceItem.new(:item_id => 45)
-    items1 = Item.new(:id => 23)
-    items2 = Item.new(:id => 45)
-    ItemsRepo.get_instance([items1, items2])
-    assert_equal items2, invoice_item.item
+    items = Item.new(:id => 23)
+    invoice_item1 = InvoiceItem.new(:item_id => 23)
+    invoice_item2 = InvoiceItem.new(:item_id => 45)
+    invoice_item3 = InvoiceItem.new(:item_id => 23)
+    InvoiceItemsRepo.get_instance([invoice_item1, invoice_item2, invoice_item3])
+    assert_equal [invoice_item1, invoice_item3], items.invoice_items
   end
 
   def teardown
     MerchantRepo.clear
-    ItemsRepo.clear
+    InvoiceItemsRepo.clear
   end
-
-
-
 end

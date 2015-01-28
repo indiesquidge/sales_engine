@@ -19,18 +19,4 @@ class Transaction
     invoice_repo = InvoiceRepo.get_instance
     invoice_repo.find_by_id(invoice_id)
   end
-
-  # invoice returns Invoices associated with transactions
-
-
-  ## In Sales Engine ##
-  #
-  # def transactions_relationships_invoices(transaction)
-  #   @invoices_repository.find_by_attribute(:id, transaction.invoice_id)
-  # end
-
-
-
-
-
 end
