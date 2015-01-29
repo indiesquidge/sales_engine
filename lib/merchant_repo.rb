@@ -49,6 +49,10 @@ class MerchantRepo
     find_all_by_attribute(:updated_at, time)
   end
 
+  def revenue
+    merchants.each.inject(0) { |total, merchant| total += merchant.revenue; total }
+  end
+
   private
 
   def find_by_attribute(attr, criteria)
