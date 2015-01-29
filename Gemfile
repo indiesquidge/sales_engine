@@ -6,3 +6,4 @@ gem 'rake'
 gem 'minitest'
 
 gem 'simplecov', :require => false
+gem 'simplecov-badge', :require => false
