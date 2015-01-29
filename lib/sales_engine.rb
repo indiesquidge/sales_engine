@@ -15,7 +15,7 @@ require_relative 'invoice'
 
 class SalesEngine
   attr_reader :customer_repository, :merchant_repository, :invoice_repository,
-              :invoice_items_repository, :items_repository, :transaction_repository
+              :invoice_item_repository, :item_repository, :transaction_repository
   attr_reader :customers, :merchants, :invoices,
               :invoice_items, :items, :transactions
 

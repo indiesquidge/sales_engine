@@ -9,29 +9,19 @@ class Item
   def initialize(data)
     @id           = data[:id].to_i
     @name         = data[:name]
-    @unit_price   = data[:unit_price].to_i
+    @unit_price   = BigDecimal.new(data[:unit_price].to_i) / BigDecimal(100)
     @merchant_id  = data[:merchant_id].to_i
     @created_at   = data[:created_at]
     @updated_at   = data[:updated_at]
   end
-
 
   def merchant
     merchant_repo = MerchantRepo.get_instance
     merchant_repo.find_by_id(merchant_id)
   end
 
-
-  ## Sales Engine ##
-
-  # def item_relationships_invoice_items(item)
-  #   @invoice_items_repository.find_all_by_attribute(:item_id, item.id)
-  # end
-  #
-  # def item_relationships_merchants(item)
-  #   @merchants_repository.find_by_attribute(:id, item.merchant_id)
-  # end
-
-
-
+  def invoice_items
+    invoice_items_repo = InvoiceItemsRepo.get_instance
+    invoice_items_repo.find_all_by_item_id(id)
+  end
 end

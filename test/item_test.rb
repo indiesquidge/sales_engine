@@ -20,6 +20,6 @@ class ItemTest < Minitest::Test
 
   def test_it_stores_a_unit_price
     item = Item.new({:unit_price => 32301})
-    assert_equal BigDecimal.new(32301), item.unit_price
+    assert_equal BigDecimal.new("32301")/100, item.unit_price
   end
 end
