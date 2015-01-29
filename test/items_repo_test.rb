@@ -31,7 +31,7 @@ class ItemsRepositoryTest <  Minitest::Test
     item2 = Item.new(:unit_price => 45098)
     items = [item, item2]
     repo = ItemsRepo.new(items)
-    assert_equal item, repo.find_by_unit_price(67076)
+    assert_equal item, repo.find_by_unit_price(670.76)
   end
 
   def test_it_can_find_one_by_time_created
@@ -71,7 +71,7 @@ class ItemsRepositoryTest <  Minitest::Test
     item2 = Item.new(:unit_price => 54321)
     item3 = Item.new(:unit_price => 12345)
     repo = ItemsRepo.new([item, item2, item3])
-    assert_equal [item, item3], repo.find_all_by_unit_price(12345)
+    assert_equal [item, item3], repo.find_all_by_unit_price(123.45)
   end
 
   def test_it_can_find_all_merchant_id
