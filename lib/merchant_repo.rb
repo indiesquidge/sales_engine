@@ -48,12 +48,10 @@ class MerchantRepo
   def find_all_by_time_updated(time)
     # find_all_by_attribute(:updated_at, time)
     merchants.select { |merchant| Date.parse(merchant.updated_at) == Date.parse(time) }
-    require 'pry'
-    binding.pry
   end
 
   def revenue(date=nil)
-    merchants.each.inject(0) { |total, merchant| total += merchant.revenue(date); total }
+    merchants.inject(0) { |total, merchant| total += merchant.revenue(date) }
   end
 
   private
