@@ -17,4 +17,16 @@ class Merchant
     item_repo = ItemsRepo.get_instance
     item_repo.find_all_by_merchant_id(id)
   end
+
+  def revenue
+    associated_invoices = invoices
+    result = 0
+    associated_invoices.each do |invoice|
+      associated_invoice_items = invoice.invoice_items
+      associated_invoice_items.each do |invoice_item|
+        result += invoice_item.quantity * invoice_item.unit_price
+      end
+    end
+    result = BigDecimal.new(result)
+  end
 end
