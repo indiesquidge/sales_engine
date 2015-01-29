@@ -96,9 +96,10 @@ class InvoiceRepoTest < MiniTest::Test
   def test_it_can_find_all_by_time_updated
     invoice = Invoice.new(:updated_at => "2015-01-23 09:01:21 MST")
     invoice2 = Invoice.new(:updated_at => "2015-01-23 09:01:21 MST")
-    invoice3 = Invoice.new(:updated_at => "2015-01-23 08:09:45 MST")
+    invoice3 = Invoice.new(:updated_at => "2015-01-24 08:09:45 MST")
     invoices = [invoice, invoice2, invoice3]
     repo = InvoiceRepo.new(invoices)
-    assert_equal [invoice, invoice2], repo.find_all_by_time_updated("2015-01-23 09:01:21 MST")
+    assert_equal [invoice, invoice2], repo.find_all_by_time_updated(Date.parse("2015-01-23 09:01:21 MST"))
+    assert_equal [invoice, invoice2], repo.find_all_by_time_updated(Date.parse("Sun, 23 Jan 2015"))
   end
 end

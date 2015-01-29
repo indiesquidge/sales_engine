@@ -13,13 +13,22 @@ class Merchant
     invoice_repo.find_all_by_merchant_id(id)
   end
 
+  def invoices_by_date(date)
+    invoice_repo = InvoiceRepo.get_instance
+    invoice_repo.find_all_by_time_updated(date)
+  end
+
   def items
     item_repo = ItemsRepo.get_instance
     item_repo.find_all_by_merchant_id(id)
   end
 
-  def revenue
-    associated_invoices = invoices
+  def revenue(date=nil)
+    associated_invoices = if date.nil?
+                            invoices
+                          else
+                            invoices_by_date(date)
+                          end
     result = 0
     associated_invoices.each do |invoice|
       associated_invoice_items = invoice.invoice_items

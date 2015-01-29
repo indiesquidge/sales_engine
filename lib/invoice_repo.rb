@@ -64,6 +64,7 @@ class InvoiceRepo
 
   def find_all_by_time_updated(time)
     find_all_by_attribute(:updated_at, time)
+    invoices.select { |invoice| Date.parse(invoice.updated_at) == time }
   end
 
   private

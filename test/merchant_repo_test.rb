@@ -63,7 +63,7 @@ class MerchantRepoTest < MiniTest::Test
   def test_it_can_find_all_by_time_updated
     merchant = Merchant.new(:updated_at => "2015-01-23 09:01:21 MST")
     merchant2 = Merchant.new(:updated_at => "2015-01-23 09:01:21 MST")
-    merchant3 = Merchant.new(:updated_at => "2015-01-23 08:09:45 MST")
+    merchant3 = Merchant.new(:updated_at => "2015-01-24 08:09:45 MST")
     merchants = [merchant, merchant2, merchant3]
     repo = MerchantRepo.new(merchants)
     assert_equal [merchant, merchant2], repo.find_all_by_time_updated("2015-01-23 09:01:21 MST")
